@@ -33,17 +33,17 @@
       - a list of service beans
         in this example, we refer to another bean defined in this Blueprint XML file with a <ref/> element
     -->
-    <jaxrs:server address="/resourceCatalog" id="resourceCatalog">
+    <jaxrs:server address="/productCatalog" id="productCatalog">
         <jaxrs:serviceBeans>
-            <ref component-id="rsrcCatalogue"/>
+            <ref component-id="prdctCatalogue"/>
         </jaxrs:serviceBeans>
         <jaxrs:providers>
             <bean class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider"/>
         </jaxrs:providers>
         <jaxrs:features>
             <bean class="io.fabric8.cxf.endpoint.SwaggerFeature">
-                <property name="title" value="Resource Catalog RESTful API"/>
-                <property name="description" value="Example resource catalog API stubs"/>
+                <property name="title" value="Product Catalog RESTful API"/>
+                <property name="description" value="Example product catalog API stubs"/>
                 <property name="version" value="${project.version}"/>
             </bean>
         </jaxrs:features>
@@ -64,5 +64,5 @@
       We are using the OSGi Blueprint XML syntax to define a bean that we referred to in our JAX-RS server setup.
       This bean carries a set of JAX-RS annotations that allow its methods to be mapped to incoming requests.
     -->
-    <bean class="io.fabric8.quickstarts.rest.CatalogManagement" id="rsrcCatalogue"/>
+    <bean class="io.fabric8.quickstarts.rest.CatalogManagement" id="prdctCatalogue"/>
 </blueprint>
